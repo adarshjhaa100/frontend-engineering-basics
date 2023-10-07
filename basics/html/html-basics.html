@@ -6,9 +6,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #sample-image {
+            background-image: url("labs/lab-2-structure-page-content/favorite-4.jpg");
+        }
+    </style>
 </head>
 
 <body>
+    <!-- Text formatting -->
     <code>
         int main() { return 0; }
     </code>
@@ -18,6 +24,106 @@ int main() {
     return 0; 
 }
     </pre>
+
+    <!-- Multimedia and embedding -->
+    <!-- For pulling an image using src, an http call is made to fetch the image (separate from call to fetch actual html) -->
+    <!-- Image, has src and alt text. This is called void element, as it doesnt have end tag or child elements -->
+    <!-- Specifying width and height is required so as to preoccupy a specific area on the page. When the image loads, content won't shift -->
+    <!-- Just try to add the actual size and not resize the images (That may distort them) -->
+    <!-- title: used to provide information on hover to image, not good for accessibility reasons -->
+    <img 
+        src="labs/lab-2-structure-page-content/dove.png" 
+        alt="dove" 
+        width="512" height="512" 
+        title="picture of dove"
+        defer />
+
+    <!-- Expt -->
+    <img src="https://raw.githubusercontent.com/mdn/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg
+    " alt ="dinosaur" width='200px' height='171px'>
+
+    <!-- Semantically marking up image with annotations(figcaption). Can be done with div, but this is more semantically correct-->
+    <figure>
+        <img src="https://raw.githubusercontent.com/mdn/learning-area/master/html/multimedia-and-embedding/images-in-html/dinosaur_small.jpg
+    " alt ="dinosaur" width='200px' height='171px'>
+        <figcaption>This is an image of a dinosaur</figcaption>
+    </figure>
+    
+    <!-- CSS background image : Use when image is just for decoration-->
+    <div class="sample-image"></div>
+
+
+    <!-- Video and Audio -->
+
+    <!-- audio is not fully downloaded from the start. Its downloaded in parts. (Need more research) -->
+    <!-- Controls are added to play/pause/modify volume etc. Can be programmed through JS as well -->
+    <video src="sample-data/rabbit320.webm" controls>
+        <!-- Only shows up if unsupported format -->
+        <p>
+          Your browser doesn't support HTML video. Here is a
+          <a href="sample-data/rabbit320.webm">link to the video</a> instead.
+        </p>
+    </video>
+
+    <!-- Container format: define structure, metadata, subtitles etc for a video/audio. e.g. mp4, webM etc. -->
+    <!-- codecs: help compress audio/video to binary data and back e.g Vorbis, H.264, Opus(Audio) -->
+    <!-- Supporting multiple sources. As different browsers on different devices might not have the one we're serving in -->
+    <video controls>
+        <!-- Used to specify source for media elements, need to be inside a parent media element -->
+        <source src="sample-data/rabbit320.webm" type="video/webm">
+        <source src="sample-data/rabbit320.mp4" type="video/mp4">
+        <p>
+            Your browser doesn't support HTML video. Here is a
+            <a href="sample-data/rabbit320.webm">link to the video</a> instead.
+        </p>
+
+    </video>
+
+
+    <!-- Other features -->
+    <!-- Widht and height: specify the actual resolution -->
+    <!-- autoplay: starts the video without fully downloading, could be inconvenient for the user -->
+    <!-- loop - keep playing. muted: start muted -->
+    <!-- (imp) preload: auto, useful for buffering large file -->
+    <!--  -->
+    <video
+        controls
+        width="400"
+        height="400"
+        autoplay
+        loop
+        muted
+        preload="auto"
+        poster="sample-data/poster.png">
+        <source src="https://github.com/mdn/learning-area/raw/main/html/multimedia-and-embedding/video-and-audio-content/rabbit320.mp4" type="video/mp4" />
+        <source src="sample-data/rabbit320.webm" type="video/webm" />
+        <p>
+            Your browser doesn't support this video. Here is a
+            <a href="rabbit320.mp4">link to the video</a> instead.
+        </p>
+    </video>
+
+    <!-- Same as audio, just that it doesn't have visual content like poster, width and height  -->
+    <audio src="sample-data/viper.mp3" controls></audio>
+
+    <!-- Adding Tracks (subtitles, chapters, sections etc.) -->
+    <!-- CC(subtitles can be added in formats like .vtt) -->
+    <video controls>
+        <!-- Used to specify source for media elements, need to be inside a parent media element -->
+        <source src="sample-data/rabbit320.webm" type="video/webm">
+        <source src="sample-data/rabbit320.mp4" type="video/mp4">
+        
+        <!-- Track: specify after the source -->
+        <!-- Can specify language of subtitle -->
+        <track kind="subtitles" src="sample-data/rabbit-sub.vtt" srclang="es" label="Spanish"/>
+
+        <p>
+            Your browser doesn't support HTML video. Here is a
+            <a href="sample-data/rabbit320.webm">link to the video</a> instead.
+        </p>
+
+    </video>
+
 
 </body>
 

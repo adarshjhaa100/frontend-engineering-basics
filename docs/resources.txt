@@ -1,0 +1,8 @@
+MDN Learning area repo: git@github.com:mdn/learning-area.git
+high level on audio/video container formats(WebM, mp3, mp4 etc): https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content#using_multiple_source_formats_to_improve_compatibility
+
+Choosing right container and codec for video/audio: 
+https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers#choosing_the_right_container
+https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Video_codecs#choosing_a_video_codec
+
+Lossless compression?
